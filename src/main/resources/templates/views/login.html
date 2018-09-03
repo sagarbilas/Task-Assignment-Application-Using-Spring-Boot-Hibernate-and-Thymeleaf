@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+
+<head>
+<title>Register Form</title>
+</head>
+<body>
+
+	<div layout:fragment="content" class="container mySpace">
+		<!-- we will now create an input field for this email & bind it with the email field of the user class. 
+in order to do that we need to declare the object that we just passed from the backend -->
+<!-- th:action="@{/register}"  -->
+
+<div class="alert alert-danger" th:if="${param.error}">
+<h2>Invalid Email or Password</h2>
+</div>
+		<form th:action="@{/login}" method="post">
+			<div class="form-group">
+				<label for="email" class="form-control-labe">Email</label> <input
+					type="text" class="form-control" id="email" name="username" />		
+			</div>
+
+			<div class="form-group">
+				<label for="password" class="form-control-labe">Password</label> <input type="password" class="form-control" id="password" name="password" />
+			</div>
+			
+			<input type="submit" value="submit" class="btn btn-primary" />
+			
+		</form>
+	</div>
+
+</body>
+</html>

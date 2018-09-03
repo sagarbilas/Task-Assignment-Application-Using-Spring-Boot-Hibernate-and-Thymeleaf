@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+
+<head>
+<title>Register Form</title>
+</head>
+<body>
+
+	<div layout:fragment="content" class="container mySpace">
+	
+		<form th:action="@{/addTask}" th:object="${task}" method="post">
+			<div class="form-group">
+				<label for="taskTitle" class="form-control-labe">Task Title</label> <input
+					type="text" class="form-control" th:field="*{taskTitle}" id="taskTitle" />
+					<div class="text text-danger" th:if="${#fields.hasErrors('taskTitle')}" th:errors="*{taskTitle}" ></div>
+			</div>
+
+			<div class="form-group">
+				<label for="startTime" class="form-control-labe">Start Date</label> <input type="date" class="form-control" th:field="*{startDate}" id="startDate" />
+				<div class="text text-danger" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" ></div>
+			</div>
+
+			<div class="form-group">
+				<label for="stopTime" class="form-control-labe">Stop Date</label> 
+				<input type="date" class="form-control" th:field="*{stopDate}" id="stopDate" />
+				<div class="text text-danger" th:if="${#fields.hasErrors('stopDate')}" th:errors="*{stopDate}" ></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="description" class="form-control-labe">Description</label> 
+				<textarea class="form-control" th:field="*{description}" id="description"></textarea>
+				<div class="text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}" ></div>
+			</div>
+			
+			<input type="submit" value="submit" class="btn btn-primary" />
+			
+		</form>
+	</div>
+
+</body>
+</html>
